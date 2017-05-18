@@ -11,11 +11,13 @@ public class HelloSpringApp {
 		
 		//retrieve the bean from spring container
 		Coach theCoach=context.getBean("myCricketCoach",Coach.class);
-		
+		Coach alphaCoach=context.getBean("myCricketCoach",Coach.class);
 		//call methods on the bean
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailyFortune());
-	
+		//test the scope
+		boolean result=(theCoach==alphaCoach);
+		System.out.println("Is the reference same?: "+result);
 		
 		// close the context
 		context.close();
